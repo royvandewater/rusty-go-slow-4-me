@@ -1,0 +1,8 @@
+[package]
+name = "go-slow-4-me"
+version = "1.0.0"
+authors = ["Roy van de Water <roy.v.water@gmail.com>"]
+
+[dependencies]
+iron = "0.5.*"
+router = "0.5.*"
