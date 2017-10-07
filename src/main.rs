@@ -8,7 +8,6 @@ use iron::prelude::*;
 use iron::{Url, status};
 use router::Router;
 use std::{env, thread, time};
-use std::borrow::Cow;
 
 fn main() {
     let mut router = Router::new();

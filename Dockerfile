@@ -1,10 +1,6 @@
 FROM ekidd/rust-musl-builder as build
 LABEL maintainer="roy.v.water@gmail.com"
 
-RUN mkdir -p src && touch src/main.rs
-COPY ./Cargo.toml ./Cargo.toml
-RUN cargo update
-
 COPY . .
 RUN cargo build --release
 
