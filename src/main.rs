@@ -37,7 +37,7 @@ fn delay(req: &mut Request) -> IronResult<Response> {
     Ok(Response::with((ContentType::json().0, status::Ok, json)))
 }
 
-fn redirect(req: &mut Request) -> IronResult<Response> {
+fn redirect(_req: &mut Request) -> IronResult<Response> {
     let url = Url::parse("https://github.com/royvandewater/rusty-go-slow-4-me").unwrap();
 
     Ok(Response::with(
