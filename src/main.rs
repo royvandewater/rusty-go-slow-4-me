@@ -7,7 +7,8 @@ use iron::modifiers::Redirect;
 use iron::prelude::*;
 use iron::{Url, status};
 use router::Router;
-use std::{thread, time};
+use std::{env, thread, time};
+use std::borrow::Cow;
 
 fn main() {
     let mut router = Router::new();
@@ -16,7 +17,16 @@ fn main() {
     router.get("/:delay", delay, "delay");
     router.post("/:delay", delay, "delay");
 
-    Iron::new(router).http("localhost:3000").unwrap();
+    let addr = format!("0.0.0.0:{}", get_port());
+    println!("Listening on {}", addr);
+    Iron::new(router).http(addr).unwrap();
+}
+
+fn get_port() -> String {
+    match env::var("PORT") {
+        Ok(val) => return val,
+        Err(_e) => return String::from("80"),
+    };
 }
 
 fn delay(req: &mut Request) -> IronResult<Response> {
