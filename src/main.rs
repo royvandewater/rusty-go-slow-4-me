@@ -47,7 +47,7 @@ fn delay(req: &mut Request) -> IronResult<Response> {
 }
 
 fn redirect(_req: &mut Request) -> IronResult<Response> {
-    let url = Url::parse("https://github.com/royvandewater/rusty-go-slow-4-me").unwrap();
+    let url = Url::parse("http://docs.goslow4.me").unwrap();
 
     Ok(Response::with(
         (status::TemporaryRedirect, Redirect(url.clone())),
